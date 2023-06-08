@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arbol : MonoBehaviour
+public class ArbolGrande : MonoBehaviour
 {
     public Sprite normalSprite;
     public Sprite hitSprite;
-    public Vector2 hitSpriteScale = new Vector2(10f, 10f);
+    public Vector2 hitSpriteScale = new Vector2(1.5f, 1.5f);
 
     private SpriteRenderer spriteRenderer;
 

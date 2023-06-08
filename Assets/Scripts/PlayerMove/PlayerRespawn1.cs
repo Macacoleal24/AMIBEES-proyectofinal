@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlayerRespawn : MonoBehaviour
+public class PlayerRespawn1 : MonoBehaviour
 {
     private float checkPointPositionX, checkPointPositionY;
-
-    private void Start()
+    void Start()
     {
         if (PlayerPrefs.GetFloat("checkPointPositionX") != 0)
         {
@@ -15,14 +13,10 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
-    public void ReachedCheckPoint(float x , float y)
+    
+    public void ReachedCheckPoint(float x, float y)
     {
         PlayerPrefs.SetFloat("checkPointPositionX", x);
         PlayerPrefs.SetFloat("checkPointPositionY", y);
-    }
-
-    public void PlayerDamaged()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

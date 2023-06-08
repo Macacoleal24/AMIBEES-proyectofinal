@@ -8,10 +8,15 @@ public class bala : MonoBehaviour
     [SerializeField] private float daño;
     [SerializeField] private float tiempodeVida;
 
+    private Transform personaje;
 
     private void Start()
     {
-        Destroy(gameObject,tiempodeVida);
+        personaje = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Destroy(gameObject, tiempodeVida);
+        transform.position = new Vector2(transform.position.x, personaje.position.y);
+
     }
 
     private void Update()
@@ -23,7 +28,12 @@ public class bala : MonoBehaviour
     {
         if (collision.CompareTag("Arbol"))
         {
-            collision.GetComponent<arbol>().TomarDaño(daño);
+            arbol plant = collision.GetComponent<arbol>();
+            if (plant != null)
+            {
+                plant.ChangeSprite();
+            }
+
             Destroy(gameObject);
         }
     }
